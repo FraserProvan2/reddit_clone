@@ -6,10 +6,10 @@
       v-if="this.voteStatus == 'false' || this.voteStatus == 'null'"
       @click="handleUpvote"
     >
-      <i class="fas fa-arrow-up"></i>
+      <i class="fas fa-angle-up"></i>
     </button>
     <button class="btn btn btn-white p-1" v-else @click="handleUpvote">
-      <i class="text-primary fas fa-arrow-up"></i>
+      <i class="text-primary fas fa-angle-up"></i>
     </button>
 
     <!-- vote count -->
@@ -21,10 +21,10 @@
       v-if="this.voteStatus == 'true' || this.voteStatus == 'null'"
       @click="handleDownvote"
     >
-      <i class="fas fa-arrow-down"></i>
+      <i class="fas fa-angle-down"></i>
     </button>
     <button class="btn btn btn-white p-1" v-else @click="handleDownvote">
-      <i class="text-primary fas fa-arrow-down"></i>
+      <i class="text-primary fas fa-angle-down"></i>
     </button>
   </div>
 </template>
@@ -51,7 +51,7 @@ export default {
         this.voteCount--;
       } else {
         if (this.voteStatus == "false") {
-          this.voteCount = this.voteCount + 2;
+          this.voteCount = parseInt(this.voteCount + 2);
         } else if (this.voteStatus == "null") {
           this.voteCount++;
         }
@@ -77,7 +77,7 @@ export default {
         this.voteCount++;
       } else {
         if (this.voteStatus == "true") {
-          this.voteCount = this.voteCount - 2;
+          this.voteCount = parseInt(this.voteCount - 2);
         } else if (this.voteStatus == "null") {
           this.voteCount--;
         }

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white">
+<nav class="navbar navbar-expand-md navbar-light">
   <a class="navbar-brand" href="{{ url('/') }}">
     Reddit Clone
   </a>

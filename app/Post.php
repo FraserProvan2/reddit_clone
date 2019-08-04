@@ -19,6 +19,11 @@ class Post extends Model
         return $this->belongsTo('App\SubReddit');
     }
 
+    public function getVotesAttribute()
+    {
+        return $this->postsVoteCount();
+    }
+
     /**
      * Checks if user has votes on a specific post
      *

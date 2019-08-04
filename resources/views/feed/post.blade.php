@@ -1,6 +1,6 @@
 <div class="border border-primary my-2">
-	<div class="row p-3">
-
+	<div class="row p-2">
+		
 		<div class="col-2">
 			@php
 				$user_signed_in = false;
@@ -15,7 +15,7 @@
 				user-signed-in={{ (int) $user_signed_in }} users-vote={{ json_encode($users_vote) }}></votes>
 		</div>
 
-		<div class="col-10  my-auto">
+		<div class="col-10 my-auto">
 			<div class="small">
 				<a class="h6" href="{{ url("r/" . $post->subReddit->name) }}">r/{{ $post->subReddit->name }}</a>
 				posted by {{ $post->user->username }}

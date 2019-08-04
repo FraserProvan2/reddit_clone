@@ -10,7 +10,7 @@ Auth::routes();
 | Feed Routes
 |-------------------------------------------------------------------------*/
 
-Route::get('/', 'feedController@index');
+Route::get('/', 'FeedController@index');
 
 // voting
-Route::post('/vote', 'feedController@updateVote');
+Route::post('/vote', 'VoteController@updateVote');
