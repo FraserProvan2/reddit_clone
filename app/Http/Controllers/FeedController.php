@@ -2,39 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Post;
 use App\Vote;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class FeedController extends Controller
 {
     /**
      * Loads Homepage (All)
-     * 
-     * @return view feed (home) 
+     *
+     * @return view feed (home)
      */
     public function index()
-    {        
+    {
         // RAW SQL TO order by number of votes
         //     SELECT posts.*, SUM(votes.status) as number_of_votes
         //     FROM posts
         //     LEFT JOIN votes ON posts.id = votes.post_id
         //     GROUP BY posts.id
-        
+
         $posts = Post::limit(50)->paginate(3);
 
         return view('feed.index', [
-            'posts' => $posts
+            'posts' => $posts,
         ]);
     }
 
     /**
      * Loads Homepage (All)
-     * 
-     * @return view feed (home) 
+     *
+     * @return view feed (home)
      */
     public function updateVote(Request $request)
     {
@@ -46,9 +43,14 @@ class FeedController extends Controller
 
         // update votes table accordingly
         if ($request->vote_type == 'upvote') {
-            if (!$current_vote_status) Vote::upvote($post);
+            if (!$current_vote_status) {
+                Vote::upvote($post);
+            }
+
         } else if ($request->vote_type == 'downvote') {
-            if ($current_vote_status !== false) Vote::downvote($post);
+            if ($current_vote_status !== false) {
+                Vote::downvote($post);
+            }
         }
     }
 }

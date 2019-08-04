@@ -43,7 +43,7 @@ export default {
   methods: {
     handleUpvote() {
       if (this.isSignedIn != 1) {
-        return window.location.href = "/register";
+        return (window.location.href = "/register");
       }
 
       if (this.voteStatus == "true") {
@@ -69,7 +69,7 @@ export default {
 
     handleDownvote() {
       if (this.isSignedIn != 1) {
-        return window.location.href = "/register";
+        return (window.location.href = "/register");
       }
 
       if (this.voteStatus == "false") {
@@ -91,7 +91,7 @@ export default {
           vote_type: "downvote"
         })
         .then(response => {});
-    },
+    }
   }
 };
 </script>
