@@ -1709,9 +1709,77 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log("Component mounted.");
+  props: ["post-id", "votes", "user-signed-in", "users-vote"],
+  data: function data() {
+    return {
+      voteCount: this.votes,
+      isSignedIn: this.userSignedIn,
+      voteStatus: this.usersVote
+    };
+  },
+  methods: {
+    handleUpvote: function handleUpvote() {
+      if (this.voteStatus == "true") {
+        this.voteStatus = "null";
+        this.voteCount--;
+      } else {
+        if (this.voteStatus == "false") {
+          this.voteCount = this.voteCount + 2;
+        } else if (this.voteStatus == "null") {
+          this.voteCount++;
+        }
+
+        this.voteStatus = "true";
+      } // update db
+
+
+      axios.post("/vote", {
+        post_id: this.postId,
+        vote_type: "upvote"
+      }).then(function (response) {});
+    },
+    handleDownvote: function handleDownvote() {
+      if (this.voteStatus == "false") {
+        this.voteStatus = "null";
+        this.voteCount++;
+      } else {
+        if (this.voteStatus == "true") {
+          this.voteCount = this.voteCount - 2;
+        } else if (this.voteStatus == "null") {
+          this.voteCount--;
+        }
+
+        this.voteStatus = "false";
+      } // update db
+
+
+      axios.post("/vote", {
+        post_id: this.postId,
+        vote_type: "downvote"
+      }).then(function (response) {
+        console.log(response);
+      });
+    }
   }
 });
 
@@ -37011,26 +37079,47 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "text-center" }, [
+    this.voteStatus == "false" || this.voteStatus == "null"
+      ? _c(
+          "button",
+          {
+            staticClass: "btn btn btn-white p-1",
+            on: { click: _vm.handleUpvote }
+          },
+          [_c("i", { staticClass: "fas fa-arrow-up" })]
+        )
+      : _c(
+          "button",
+          {
+            staticClass: "btn btn btn-white p-1",
+            on: { click: _vm.handleUpvote }
+          },
+          [_c("i", { staticClass: "text-primary fas fa-arrow-up" })]
+        ),
+    _vm._v(" "),
+    _c("div", { staticClass: "votes" }, [_vm._v(_vm._s(this.voteCount))]),
+    _vm._v(" "),
+    this.voteStatus == "true" || this.voteStatus == "null"
+      ? _c(
+          "button",
+          {
+            staticClass: "btn btn btn-white p-1",
+            on: { click: _vm.handleDownvote }
+          },
+          [_c("i", { staticClass: "fas fa-arrow-down" })]
+        )
+      : _c(
+          "button",
+          {
+            staticClass: "btn btn btn-white p-1",
+            on: { click: _vm.handleDownvote }
+          },
+          [_c("i", { staticClass: "text-primary fas fa-arrow-down" })]
+        )
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "voting-section text-center" }, [
-      _c("div", { staticClass: "upvote" }, [
-        _c("i", { staticClass: "fas fa-arrow-up" })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "votes" }, [_vm._v("123")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "downvote" }, [
-        _c("i", { staticClass: "fas fa-arrow-down" })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

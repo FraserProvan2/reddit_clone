@@ -2,7 +2,9 @@
 
 namespace App;
 
+use App\Vote;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Post extends Model
 {
@@ -14,5 +16,49 @@ class Post extends Model
     public function subReddit()
     {
         return $this->belongsTo('App\SubReddit');
+    }
+
+    /**
+     * Checks if user has votes on a specific post
+     * 
+     * @param int posts id
+     * @return view feed (home) 
+     */
+    public function getUsersVote(Post $post)
+    {
+        $vote_checked = Vote::where('user_id', Auth()->id())
+            ->where('post_id', $post->id)
+            ->first();
+
+        if ($vote_checked) {
+            if ($vote_checked->status) {
+                return true;
+            }
+            else if (!$vote_checked->status) {
+                return false;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Gets the amount of votes a post has
+     * 
+     * @param Post post
+     * @return int number of votes
+     */
+    public function PostsVoteCount(Post $post)
+    {
+        $upvotes = Vote::where('user_id', Auth()->id())
+            ->where('post_id', $post->id)
+            ->where('status', 1)
+            ->count();
+        $downvotes = Vote::where('user_id', Auth()->id())
+            ->where('post_id', $post->id)
+            ->where('status', 0)
+            ->count();
+
+        return $upvotes - $downvotes;
     }
 }

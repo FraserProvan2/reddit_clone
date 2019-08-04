@@ -3,7 +3,23 @@
 	<div class="row p-3">
 		
 		<div class="col-2">
-			<votes></votes>
+
+			@php
+				$user_signed_in = false;
+
+				if(Auth()) {
+					$user_signed_in = true;
+					$users_vote = $post->getUsersVote($post);
+				} else {
+					$users_vote = null;
+				}
+				@endphp
+			<votes
+				post-id={{ $post->id }}
+				votes={{ $post->PostsVoteCount($post) }}
+				user-signed-in={{ $user_signed_in }}
+				users-vote={{ json_encode($users_vote) }}
+			></votes>
 		</div>
 
 		<div class="col-10  my-auto">
@@ -17,5 +33,3 @@
 		</div>
 	</div>
 </div>
-
-

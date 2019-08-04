@@ -11,3 +11,6 @@ Auth::routes();
 |-------------------------------------------------------------------------*/
 
 Route::get('/', 'feedController@index');
+
+// voting
+Route::post('/vote', 'feedController@updateVote');

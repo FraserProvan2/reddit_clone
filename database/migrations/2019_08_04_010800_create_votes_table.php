@@ -17,7 +17,7 @@ class CreateVotesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('post_id');
-            $table->enum('status', ['up', 'down'])->nullable();
+            $table->boolean('status')->nullable();
             $table->timestamps();
 
             // relations
