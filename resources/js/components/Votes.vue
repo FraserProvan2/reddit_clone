@@ -42,6 +42,10 @@ export default {
 
   methods: {
     handleUpvote() {
+      if (this.isSignedIn != 1) {
+        return window.location.href = "/register";
+      }
+
       if (this.voteStatus == "true") {
         this.voteStatus = "null";
         this.voteCount--;
@@ -62,7 +66,12 @@ export default {
         })
         .then(response => {});
     },
+
     handleDownvote() {
+      if (this.isSignedIn != 1) {
+        return window.location.href = "/register";
+      }
+
       if (this.voteStatus == "false") {
         this.voteStatus = "null";
         this.voteCount++;
@@ -81,10 +90,8 @@ export default {
           post_id: this.postId,
           vote_type: "downvote"
         })
-        .then(response => {
-          console.log(response);
-        });
-    }
+        .then(response => {});
+    },
   }
 };
 </script>

@@ -50,12 +50,10 @@ class Post extends Model
      */
     public function PostsVoteCount(Post $post)
     {
-        $upvotes = Vote::where('user_id', Auth()->id())
-            ->where('post_id', $post->id)
+        $upvotes = Vote::where('post_id', $post->id)
             ->where('status', 1)
             ->count();
-        $downvotes = Vote::where('user_id', Auth()->id())
-            ->where('post_id', $post->id)
+        $downvotes = Vote::where('post_id', $post->id)
             ->where('status', 0)
             ->count();
 

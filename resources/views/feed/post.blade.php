@@ -3,11 +3,9 @@
 	<div class="row p-3">
 		
 		<div class="col-2">
-
 			@php
 				$user_signed_in = false;
-
-				if(Auth()) {
+				if(Auth::user()) {
 					$user_signed_in = true;
 					$users_vote = $post->getUsersVote($post);
 				} else {
@@ -17,7 +15,7 @@
 			<votes
 				post-id={{ $post->id }}
 				votes={{ $post->PostsVoteCount($post) }}
-				user-signed-in={{ $user_signed_in }}
+				user-signed-in={{ (int) $user_signed_in }}
 				users-vote={{ json_encode($users_vote) }}
 			></votes>
 		</div>

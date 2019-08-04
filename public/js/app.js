@@ -1739,6 +1739,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     handleUpvote: function handleUpvote() {
+      if (this.isSignedIn != 1) {
+        return window.location.href = "/register";
+      }
+
       if (this.voteStatus == "true") {
         this.voteStatus = "null";
         this.voteCount--;
@@ -1759,6 +1763,10 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {});
     },
     handleDownvote: function handleDownvote() {
+      if (this.isSignedIn != 1) {
+        return window.location.href = "/register";
+      }
+
       if (this.voteStatus == "false") {
         this.voteStatus = "null";
         this.voteCount++;
@@ -1776,9 +1784,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("/vote", {
         post_id: this.postId,
         vote_type: "downvote"
-      }).then(function (response) {
-        console.log(response);
-      });
+      }).then(function (response) {});
     }
   }
 });
