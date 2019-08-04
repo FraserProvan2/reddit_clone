@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Vote;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class FeedController extends Controller
 {
@@ -16,9 +17,17 @@ class FeedController extends Controller
      * @return view feed (home) 
      */
     public function index()
-    {
+    {        
+        // RAW SQL TO order by number of votes
+        //     SELECT posts.*, SUM(votes.status) as number_of_votes
+        //     FROM posts
+        //     LEFT JOIN votes ON posts.id = votes.post_id
+        //     GROUP BY posts.id
+        
+        $posts = Post::limit(50)->paginate(3);
+
         return view('feed.index', [
-            'posts' => Post::orderBy('votes', 'desc')->limit(50)->paginate(3)
+            'posts' => $posts
         ]);
     }
 

@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 class Post extends Model
 {
+    protected $appends = ['votes'];
+    
     public function user()
     {
         return $this->belongsTo('App\User');
@@ -16,6 +18,11 @@ class Post extends Model
     public function subReddit()
     {
         return $this->belongsTo('App\SubReddit');
+    }
+
+    public function getVotesAttribute()
+    {
+        return $this->PostsVoteCount();
     }
 
     /**
@@ -48,12 +55,12 @@ class Post extends Model
      * @param Post post
      * @return int number of votes
      */
-    public function PostsVoteCount(Post $post)
+    public function PostsVoteCount()
     {
-        $upvotes = Vote::where('post_id', $post->id)
+        $upvotes = Vote::where('post_id', $this->id)
             ->where('status', 1)
             ->count();
-        $downvotes = Vote::where('post_id', $post->id)
+        $downvotes = Vote::where('post_id', $this->id)
             ->where('status', 0)
             ->count();
 
