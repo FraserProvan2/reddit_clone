@@ -48,6 +48,8 @@ class Vote extends Model
      */
     public static function cleanPostVote(Post $post)
     {
-        return Vote::where('user_id', auth()->id())->where('post_id', $post->id)->delete();
+        return Vote::where('user_id', auth()->id())
+            ->where('post_id', $post->id)
+            ->delete();
     }
 }

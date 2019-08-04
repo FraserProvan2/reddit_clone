@@ -16,7 +16,7 @@ class FeedController extends Controller
      */
     public function index()
     {
-        return view('feed.index', [
+        return view('feed', [
             'posts' => $this->createFeed(Post::get()->sortByDesc('votes')),
         ]);
     }

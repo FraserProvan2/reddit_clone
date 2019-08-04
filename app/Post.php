@@ -19,9 +19,32 @@ class Post extends Model
         return $this->belongsTo('App\SubReddit');
     }
 
+    /**
+     * Appends number of votes a post has onto Post object
+     *
+     * @return int vote count
+     */
     public function getVotesAttribute()
     {
         return $this->postsVoteCount();
+    }
+
+    /**
+     * Gets the total amount of votes a post has
+     *
+     * @param Post post
+     * @return int number of votes
+     */
+    public function postsVoteCount()
+    {
+        $upvotes = Vote::where('post_id', $this->id)
+            ->where('status', 1)
+            ->count();
+        $downvotes = Vote::where('post_id', $this->id)
+            ->where('status', 0)
+            ->count();
+
+        return $upvotes - $downvotes;
     }
 
     /**
@@ -45,23 +68,5 @@ class Post extends Model
         }
 
         return null;
-    }
-
-    /**
-     * Gets the amount of votes a post has
-     *
-     * @param Post post
-     * @return int number of votes
-     */
-    public function postsVoteCount()
-    {
-        $upvotes = Vote::where('post_id', $this->id)
-            ->where('status', 1)
-            ->count();
-        $downvotes = Vote::where('post_id', $this->id)
-            ->where('status', 0)
-            ->count();
-
-        return $upvotes - $downvotes;
     }
 }

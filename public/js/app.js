@@ -1748,7 +1748,7 @@ __webpack_require__.r(__webpack_exports__);
         this.voteCount--;
       } else {
         if (this.voteStatus == "false") {
-          this.voteCount = parseInt(this.voteCount + 2);
+          this.voteCount = parseInt(this.voteCount) + parseInt(2);
         } else if (this.voteStatus == "null") {
           this.voteCount++;
         }
@@ -1772,7 +1772,7 @@ __webpack_require__.r(__webpack_exports__);
         this.voteCount++;
       } else {
         if (this.voteStatus == "true") {
-          this.voteCount = parseInt(this.voteCount - 2);
+          this.voteCount = parseInt(this.voteCount) - parseInt(2);
         } else if (this.voteStatus == "null") {
           this.voteCount--;
         }
