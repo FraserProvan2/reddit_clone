@@ -52,7 +52,10 @@
             @endforeach
 
             {{-- Pagination links --}}
-            {{ $posts->links() }}
+            <span class="text-center float-center">
+                {{ $posts->appends(['sort' => 'vote'])->links() }} 
+            </span>
+            
         </div>
     </div>
 </div>

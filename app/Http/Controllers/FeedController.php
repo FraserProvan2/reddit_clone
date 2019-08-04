@@ -16,8 +16,9 @@ class FeedController extends Controller
      */
     public function index()
     {
+        $posts = Post::simplePaginate(7);
         return view('feed', [
-            'posts' => $this->createFeed(Post::get()->sortByDesc('votes')),
+            'posts' => $posts,
         ]);
     }
 
@@ -37,7 +38,8 @@ class FeedController extends Controller
 
         return new LengthAwarePaginator(
             $collection->forPage($page, $perPage),
-            $collection->count(), $perPage,
+            $collection->count(), 
+            $perPage,
             $page,
             ['path' => url('/')]
         );
