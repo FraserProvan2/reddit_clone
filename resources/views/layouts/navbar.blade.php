@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-md navbar-light">
-  <a class="navbar-brand" href="{{ url('/') }}">
+<nav class="navbar border-white navbar-expand-md navbar-light">
+  <a class="navbar-brand text-dark" href="{{ url('/') }}">
     Reddit Clone
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

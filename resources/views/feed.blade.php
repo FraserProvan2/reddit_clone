@@ -13,7 +13,7 @@
 
             {{-- Post Tempalte--}}
             @foreach($posts as $post)
-            <div class="border border-primary my-2">
+            <div class="border border-gray my-2">
                 <div class="row p-2">
             
                     {{-- Votes --}}
@@ -57,9 +57,9 @@
             @endforeach
 
             {{-- Pagination links --}}
-            <span class="text-center float-center">
-                {{ $posts->links() }} 
-            </span>
+            <div class="row justify-content-center p-2">
+                {{ $posts->links() }}
+            </div>
             
         </div>
     </div>

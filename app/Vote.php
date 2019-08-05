@@ -43,7 +43,8 @@ class Vote extends Model
 
     /**
      * Deletes all upvotes/downvotes for a user on the current post
-     * this method is mainly to prevent errors
+     * this method is mainly to prevent errors, if post exists it 
+     * increases/decrease votes on post table 
      *
      * @param Post post
      * @return delete all votes with user id/post id
