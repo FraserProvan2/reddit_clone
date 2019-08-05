@@ -2,7 +2,7 @@
   <a class="navbar-brand" href="{{ url('/') }}">
     <div class="h3 mt-3">
       <i class="fas fa-frog"></i> 
-      Discuss Frog 
+      Ribbit
     </div>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
