@@ -5,6 +5,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <div class="pt-3">
+                <a href="" class="h2">r/{{ $title }}</a>
+            </div>
+        </div>
+        <div class="col-md-12">
 
             {{-- Post Tempalte--}}
             @foreach($posts as $post)
@@ -24,7 +29,7 @@
                         @endphp
                         <votes 
                             post-id={{ $post->id }} 
-                            votes={{ $post->postsVoteCount($post) }}
+                            votes={{ $post->votes }}
                             user-signed-in={{ (int) $user_signed_in }} 
                             users-vote={{ json_encode($users_vote) }}
                         ></votes>
@@ -53,7 +58,7 @@
 
             {{-- Pagination links --}}
             <span class="text-center float-center">
-                {{ $posts->appends(['sort' => 'vote'])->links() }} 
+                {{ $posts->links() }} 
             </span>
             
         </div>

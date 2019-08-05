@@ -13,7 +13,7 @@ class VoteTest extends TestCase
     /** @test */
     public function user_can_upvote()
     {
-        //
+        // compare posts and vosts table etc
     }
 
     /** @test */

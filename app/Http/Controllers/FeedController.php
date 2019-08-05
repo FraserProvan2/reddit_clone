@@ -2,46 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
-use App\Vote;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\Input;
+use FeedBuilder;
+use Illuminate\Support\Facades\Auth;
 
 class FeedController extends Controller
 {
     /**
-     * Loads Homepage (All)
+     *  returns feed homepage, or guest to r/all
      *
-     * @return view feed (home)
+     * @return view feed (home or all)
      */
-    public function index()
+    public function home()
     {
-        $posts = Post::simplePaginate(7);
+        if (!Auth::check()) {
+            return redirect('/all');
+        }
+
         return view('feed', [
-            'posts' => $posts,
+            'posts' => FeedBuilder::getFeedHome(),
+            'title' => 'Home',
         ]);
     }
 
     /**
-     * Creates pagination new pagination collection
-     * we use this because we cant use custom attribute (votes)
-     * in the pagniate() method.
+     *  Views user homepage, or guest to r/all
      *
-     * @param object object of posts
-     * @param int items to display per page
-     * @return LengthAwarePaginator feed
+     * @return view feed all
      */
-    public function createFeed($posts, $perPage = 7)
+    public function all()
     {
-        $collection = collect($posts);
-        $page = Input::get('page');
-
-        return new LengthAwarePaginator(
-            $collection->forPage($page, $perPage),
-            $collection->count(), 
-            $perPage,
-            $page,
-            ['path' => url('/')]
-        );
+        return view('feed', [
+            'posts' => FeedBuilder::getFeedAll(),
+            'title' => 'All',
+        ]);
     }
+
 }

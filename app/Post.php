@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $appends = ['votes'];
-
+    protected $fillable = ['votes'];
+    
     public function user()
     {
         return $this->belongsTo('App\User');
@@ -17,34 +17,6 @@ class Post extends Model
     public function subReddit()
     {
         return $this->belongsTo('App\SubReddit');
-    }
-
-    /**
-     * Appends number of votes a post has onto Post object
-     *
-     * @return int vote count
-     */
-    public function getVotesAttribute()
-    {
-        return $this->postsVoteCount();
-    }
-
-    /**
-     * Gets the total amount of votes a post has
-     *
-     * @param Post post
-     * @return int number of votes
-     */
-    public function postsVoteCount()
-    {
-        $upvotes = Vote::where('post_id', $this->id)
-            ->where('status', 1)
-            ->count();
-        $downvotes = Vote::where('post_id', $this->id)
-            ->where('status', 0)
-            ->count();
-
-        return $upvotes - $downvotes;
     }
 
     /**
@@ -68,5 +40,15 @@ class Post extends Model
         }
 
         return null;
+    }
+
+    public static function increaseVote(Post $post)
+    {
+        return $post->update(['votes' => ($post->votes + 1)]);
+    }
+
+    public static function decreaseVote(Post $post)
+    {
+        return $post->update(['votes' => ($post->votes - 1)]);
     }
 }

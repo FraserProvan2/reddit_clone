@@ -17,6 +17,7 @@ class Vote extends Model
      */
     public static function upvote(Post $post)
     {
+        Post::increaseVote($post);
         return Vote::create([
             'user_id' => auth()->id(),
             'post_id' => $post->id,
@@ -32,6 +33,7 @@ class Vote extends Model
      */
     public static function downvote(Post $post)
     {
+        Post::decreaseVote($post);
         return Vote::create([
             'user_id' => auth()->id(),
             'post_id' => $post->id,
@@ -48,8 +50,20 @@ class Vote extends Model
      */
     public static function cleanPostVote(Post $post)
     {
-        return Vote::where('user_id', auth()->id())
+        $vote = Vote::where('user_id', auth()->id())
             ->where('post_id', $post->id)
-            ->delete();
+            ->first();
+
+        if ($vote) {
+            if ($vote->status == 0) {
+                Post::increaseVote($post);
+            } else if ($vote->status == 1) {
+                Post::decreaseVote($post);
+            }
+
+            $vote->delete();
+        }
+
+        return;
     }
 }

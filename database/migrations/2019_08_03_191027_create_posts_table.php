@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('sub_reddit_id');
             $table->string('title');
             $table->longText('body');
+            $table->bigInteger('votes')->default(0);
             $table->timestamps();
 
             // relations

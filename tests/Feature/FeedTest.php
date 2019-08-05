@@ -11,11 +11,25 @@ class FeedTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function home_page_loads()
+    public function home_feed_loads()
     {
         $response = $this->get('/');
 
         $response->assertStatus(200);
+    }
+
+    /** @test */
+    public function all_feed_loads()
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+    }
+
+    /** @test */
+    public function get_can_access_home()
+    {
+
     }
 
     /** @test */
