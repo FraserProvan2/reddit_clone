@@ -5,15 +5,15 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="pt-3">
-                <a href="" class="h2">r/{{ $title }}</a>
+            <div class="pt-3 text-center">
+                <a href="" class="h2">/{{ $title }}</a>
             </div>
         </div>
         <div class="col-md-12">
 
             {{-- Post Tempalte--}}
             @foreach($posts as $post)
-            <div class="border border-gray my-2">
+            <div class="bg-default post-bg my-2">
                 <div class="row p-2">
             
                     {{-- Votes --}}
@@ -36,10 +36,10 @@
                     </div>
             
                     {{-- Postd details --}}
-                    <div class="col-10 my-auto">
+                    <div class="col-10 my-auto post-divider">
                         <div class="small">
                             {{-- SubReddit Name --}}
-                            <a class="h6" href="{{ url("r/" . $post->subReddit->name) }}">r/{{ $post->subReddit->name }}</a>
+                            <a class="h6" href="{{ url("r/" . $post->subReddit->name) }}">/{{ $post->subReddit->name }}</a>
                             {{-- Post authors username --}}
                             <span>posted by {{ $post->user->username }}</span> 
                         </div>

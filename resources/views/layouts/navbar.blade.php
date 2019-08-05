@@ -1,6 +1,9 @@
 <nav class="navbar border-white navbar-expand-md navbar-light">
-  <a class="navbar-brand text-dark" href="{{ url('/') }}">
-    Reddit Clone
+  <a class="navbar-brand" href="{{ url('/') }}">
+    <div class="h3 mt-3">
+      <i class="fas fa-frog"></i> 
+      Discuss Frog 
+    </div>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -12,9 +15,8 @@
     <ul class="navbar-nav mr-auto">
 
     </ul>
-
     <!-- Right Side Of Navbar -->
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto h4">
       <!-- Authentication Links -->
       @guest
       <li class="nav-item">

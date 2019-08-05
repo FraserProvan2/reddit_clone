@@ -12,9 +12,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
- $primary: #ec6337;
- $primary-hover: #c43e13;
-
  @import url("https://fonts.googleapis.com/css?family=Neucha|Cabin+Sketch");
  :root {
    --blue: #007bff;
@@ -31,8 +28,6 @@
    --gray: #868e96;
    --gray-dark: #333;
    --primary: #333;
-  //  --gray-dark: #6333;
-  //  --primary: #6333;
    --secondary: #555;
    --success: #28a745;
    --info: #17a2b8;
@@ -5200,7 +5195,7 @@
  
  .page-item:first-child .page-link {
    margin-left: 0;
-   border-top-left-radius: 25px;
+  //  border-top-left-radius: 25px;
    border-bottom-left-radius: 25px;
  }
  
