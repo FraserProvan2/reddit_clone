@@ -40,9 +40,9 @@ class FeedTest extends TestCase
         $this->seedDb();
 
         $response = $this->get('/all');
+        $posts = $this->getViewData($response, 'posts');
 
-        $posts = $this->getViewsData($response, 'posts');
-
+        // 1 - 5 are lower then one another, proving correct ordering
         $this->assertTrue($posts[0]->votes > $posts[1]->votes);
         $this->assertTrue($posts[1]->votes > $posts[2]->votes);
         $this->assertTrue($posts[2]->votes > $posts[3]->votes);

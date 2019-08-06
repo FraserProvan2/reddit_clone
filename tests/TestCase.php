@@ -36,7 +36,7 @@ abstract class TestCase extends BaseTestCase
      *
      * @return InteractsWithDatabase seeds DB
      */
-    protected function getViewsData($test_response, $key)
+    protected function getViewData($test_response, $key)
     {
         $content = $test_response->getOriginalContent();
 
