@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="pt-3 text-center">
-                <a href="" class="h2">/{{ $title }}</a>
+                <a href="{{ url('/' . $title) }}" class="h2">/{{ $title }}</a>
             </div>
         </div>
         <div class="col-md-12">

@@ -20,7 +20,7 @@ class FeedController extends Controller
 
         return view('feed', [
             'posts' => FeedBuilder::getFeedHome(),
-            'title' => 'Home',
+            'title' => 'home',
         ]);
     }
 
@@ -33,7 +33,7 @@ class FeedController extends Controller
     {
         return view('feed', [
             'posts' => FeedBuilder::getFeedAll(),
-            'title' => 'All',
+            'title' => 'all',
         ]);
     }
 

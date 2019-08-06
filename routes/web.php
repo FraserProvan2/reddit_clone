@@ -11,6 +11,7 @@ Auth::routes();
 |-------------------------------------------------------------------------*/
 
 Route::get('/', 'FeedController@home');
+Route::get('/home', 'FeedController@home');
 Route::get('/all', 'FeedController@all');
 
 // voting

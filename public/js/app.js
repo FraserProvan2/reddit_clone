@@ -37093,7 +37093,7 @@ var render = function() {
             staticClass: "btn btn btn-white p-1",
             on: { click: _vm.handleUpvote }
           },
-          [_c("i", { staticClass: "fas fa-angle-up" })]
+          [_c("i", { staticClass: "fas fa-arrow-up" })]
         )
       : _c(
           "button",
@@ -37101,7 +37101,7 @@ var render = function() {
             staticClass: "btn btn btn-white p-1",
             on: { click: _vm.handleUpvote }
           },
-          [_c("i", { staticClass: "text-primary fas fa-angle-up" })]
+          [_c("i", { staticClass: "text-primary fas fa-arrow-up" })]
         ),
     _vm._v(" "),
     _c("div", { staticClass: "votes" }, [_vm._v(_vm._s(this.voteCount))]),
@@ -37113,7 +37113,7 @@ var render = function() {
             staticClass: "btn btn btn-white p-1",
             on: { click: _vm.handleDownvote }
           },
-          [_c("i", { staticClass: "fas fa-angle-down" })]
+          [_c("i", { staticClass: "fas fa-arrow-down" })]
         )
       : _c(
           "button",
@@ -37121,7 +37121,7 @@ var render = function() {
             staticClass: "btn btn btn-white p-1",
             on: { click: _vm.handleDownvote }
           },
-          [_c("i", { staticClass: "text-primary fas fa-angle-down" })]
+          [_c("i", { staticClass: "text-danger fas fa-arrow-down" })]
         )
   ])
 }
