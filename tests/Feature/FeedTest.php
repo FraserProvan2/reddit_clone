@@ -14,7 +14,7 @@ class FeedTest extends TestCase
     {
         $this->get('/all')
             ->assertOk()
-            ->assertSee('/All');
+            ->assertSee('/all');
     }
 
     /** @test */
@@ -24,7 +24,7 @@ class FeedTest extends TestCase
 
         $this->get('/')
             ->assertOk()
-            ->assertSee('/Home');
+            ->assertSee('/home');
     }
 
     /** @test */
