@@ -11062,6 +11062,18 @@ pre {
   border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
 }
 
+body {
+  background-image: url(/images/ignasi_pattern_s.png?4b9d6e0aeaf910dc3e4627afce6f857b);
+}
+
+.post-bg {
+  background-color: #f8f8f8;
+}
+
+.post-divider {
+  border-left: #bebebe59 solid 2px;
+}
+
 .form-check-input {
   margin-left: 0rem !important;
 }
@@ -11075,13 +11087,5 @@ ul,
 dl {
   margin-top: none;
   margin-bottom: 0rem !important;
-}
-
-.post-bg {
-  background-color: #f8f8f8;
-}
-
-.post-divider {
-  border-left: #bebebe59 solid 2px;
 }
 

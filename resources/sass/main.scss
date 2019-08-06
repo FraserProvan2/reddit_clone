@@ -1,0 +1,35 @@
+// Core
+
+body {
+    background-image: url('../images/ignasi_pattern_s.png')
+}
+
+// Feed
+
+.post-bg {
+    background-color: $grey;
+}
+
+.post-divider {
+    border-left: #bebebe59 solid 2px;
+}
+
+
+// Bootstrap override
+
+.form-check-input {
+    margin-left: 0rem !important;
+}
+
+.form-check-label {
+    padding-left: 0rem !important;
+}
+
+ol,
+ul,
+dl {
+    margin-top: none;
+    margin-bottom: 0rem !important;
+}
+
+

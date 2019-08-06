@@ -9,13 +9,13 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/beff54eb4d.js"></script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
     <div id="app">
-        <div class="container bg-white shadow py-4 my-3">
+        <div class="container bg-white border border-gray shadow py-4 my-3">
             @include('layouts.navbar')
             @include('layouts.alerts')
             @yield('content')

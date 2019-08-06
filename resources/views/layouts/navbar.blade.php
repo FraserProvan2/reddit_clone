@@ -1,6 +1,6 @@
 <nav class="navbar border-white navbar-expand-md navbar-light">
   <a class="navbar-brand" href="{{ url('/') }}">
-    <div class="h3 mt-3">
+    <div class="h2 mt-3">
       <i class="fas fa-frog"></i> 
       Ribbit
     </div>
