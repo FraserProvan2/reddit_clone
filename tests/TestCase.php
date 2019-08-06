@@ -27,7 +27,7 @@ abstract class TestCase extends BaseTestCase
      */
     public function seedDb()
     {
-        return $this->seed('SubRedditSeeder');
+        return $this->seed('TopicSeeder');
     }
 
     /**

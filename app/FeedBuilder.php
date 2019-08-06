@@ -25,11 +25,11 @@ class FeedBuilder
     }
 
     /**
-     *  builds feed for SubReddit
+     *  builds feed for Topic
      *
      * @return Paginator feed
      */
-    public static function getFeedSubReddit()
+    public static function getFeedTopic()
     {
 
     }

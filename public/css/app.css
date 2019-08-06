@@ -1,13 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Neucha|Cabin+Sketch);@charset "UTF-8";
 
-.form-check-input {
-  margin-left: 0rem;
-}
-
-.form-check-label {
-  padding-left: 0rem;
-}
-
 /*!
  * Bootswatch v4.3.1
  * Homepage: https://bootswatch.com
@@ -11068,6 +11060,21 @@ pre {
 
 .img-thumbnail {
   border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+}
+
+.form-check-input {
+  margin-left: 0rem !important;
+}
+
+.form-check-label {
+  padding-left: 0rem !important;
+}
+
+ol,
+ul,
+dl {
+  margin-top: none;
+  margin-bottom: 0rem !important;
 }
 
 .post-bg {

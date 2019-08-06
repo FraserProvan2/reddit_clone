@@ -14,9 +14,9 @@ class Post extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function subReddit()
+    public function Topic()
     {
-        return $this->belongsTo('App\SubReddit');
+        return $this->belongsTo('App\Topic');
     }
 
     /**

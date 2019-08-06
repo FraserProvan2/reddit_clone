@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('sub_reddit_id');
+            $table->unsignedBigInteger('topic_id');
             $table->string('title');
             $table->longText('body');
             $table->bigInteger('votes')->default(0);
@@ -24,7 +24,7 @@ class CreatePostsTable extends Migration
 
             // relations
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('sub_reddit_id')->references('id')->on('sub_reddits');
+            $table->foreign('topic_id')->references('id')->on('topics');
         });
     }
 

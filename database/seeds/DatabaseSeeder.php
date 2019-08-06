@@ -12,6 +12,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(AdminUserSeeder::class);
-        $this->call(SubRedditSeeder::class);
+        $this->call(TopicSeeder::class);
     }
 }

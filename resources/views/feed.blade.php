@@ -38,8 +38,8 @@
                     {{-- Postd details --}}
                     <div class="col-10 my-auto post-divider">
                         <div class="small">
-                            {{-- SubReddit Name --}}
-                            <a class="h6" href="{{ url("r/" . $post->subReddit->name) }}">/{{ $post->subReddit->name }}</a>
+                            {{-- Topic Name --}}
+                            <a class="h6" href="{{ url("r/" . $post->Topic->name) }}">/{{ $post->Topic->name }}</a>
                             {{-- Post authors username --}}
                             <span>posted by {{ $post->user->username }}</span> 
                         </div>
