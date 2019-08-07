@@ -52,9 +52,9 @@ class VoteTest extends TestCase
             'user_id' => 6,
             'status' => 1,
         ]);
-        $this->assertDatabaseMissing('posts', [
+        $this->assertDatabaseHas('posts', [
             'id' => 1,
-            'votes' => ($postOneBeforeUpvote->votes - 1),
+            'votes' => $postOneBeforeUpvote->votes,
         ]);
     }
 
@@ -100,9 +100,9 @@ class VoteTest extends TestCase
             'user_id' => 6,
             'status' => 0,
         ]);
-        $this->assertDatabaseMissing('posts', [
+        $this->assertDatabaseHas('posts', [
             'id' => 1,
-            'votes' => ($postOneBeforeDownvote->votes + 1),
+            'votes' => $postOneBeforeDownvote->votes,
         ]);
     }
 
