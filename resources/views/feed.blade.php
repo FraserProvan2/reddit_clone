@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="pt-3 text-center">
-                <a href="{{ url('/' . $title) }}" class="h2">/{{ $title }}</a>
+                <a href="{{ url($title) }}" class="h2">{{ $title }}</a>
             </div>
         </div>
         <div class="col-md-12">
@@ -39,7 +39,7 @@
                     <div class="col-10 my-auto post-divider">
                         <div class="small">
                             {{-- Topic Name --}}
-                            <a class="h6" href="{{ url("r/" . $post->Topic->name) }}">/{{ $post->Topic->name }}</a>
+                            <a class="h6" href="{{ url('topic/' . $post->Topic->name) }}">{{ $post->Topic->name }}</a>
                             {{-- Post authors username --}}
                             <span>posted by {{ $post->user->username }}</span> 
                         </div>

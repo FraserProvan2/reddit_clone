@@ -35,6 +35,23 @@ class FeedTest extends TestCase
     }
 
     /** @test */
+    public function topic_feed_loads()
+    {
+        $this->seedDb();
+
+        $this->get('/topic/science')
+            ->assertOk()
+            ->assertSee('science');
+    }
+
+    /** @test */
+    public function redirect_when_topic_doesnt_exist()
+    {
+        $this->get('/topic/helllllo')
+            ->assertRedirect('/');
+    }
+
+    /** @test */
     public function feed_default_order_by_is_votes()
     {
         $this->seedDb();

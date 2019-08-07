@@ -16,3 +16,6 @@ Route::get('/all', 'FeedController@all');
 
 // voting
 Route::post('/vote', 'VoteController@updateVote');
+
+// topics
+Route::get('/topic/{topic_name}', 'FeedController@topic');

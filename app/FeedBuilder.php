@@ -1,6 +1,7 @@
 <?php
 
 use App\Post;
+use App\Topic;
 
 class FeedBuilder
 {
@@ -29,8 +30,10 @@ class FeedBuilder
      *
      * @return Paginator feed
      */
-    public static function getFeedTopic()
+    public static function getFeedTopic(Topic $topic)
     {
-
+        return Post::where('topic_id', $topic->id)
+            ->orderBy('votes', 'desc')
+            ->simplePaginate(7);
     }
 }
