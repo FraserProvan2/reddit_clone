@@ -13,7 +13,7 @@ class TopicSeeder extends Seeder
     public function run(Faker $faker)
     {
         
-        $topics = ['oddlysatisfying', 'science', 'pcmasterrace', 'todayilearned', 'gaming'];
+        $topics = ['science', 'football', 'tech', 'computing', 'gaming', 'news', 'politics', 'gaming'];
         
         foreach($topics as $topic) {
             DB::table('topics')->insert([
