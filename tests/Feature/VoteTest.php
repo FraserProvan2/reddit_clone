@@ -23,7 +23,7 @@ class VoteTest extends TestCase
 
         // reflects as votes record
         $this->assertDatabaseHas('votes', [
-            'user_id' => 6,
+            'user_id' => 9,
             'post_id' => 1,
             'status' => 1,
         ]);
@@ -71,7 +71,7 @@ class VoteTest extends TestCase
 
         // reflects as votes record
         $this->assertDatabaseHas('votes', [
-            'user_id' => 6,
+            'user_id' => 9,
             'post_id' => 1,
             'status' => 0,
         ]);

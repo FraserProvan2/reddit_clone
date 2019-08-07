@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use FeedBuilder;
 use Illuminate\Support\Facades\Auth;
 use App\Topic;
+use Illuminate\Http\Request;
 
 class FeedController extends Controller
 {
     /**
-     *  returns feed homepage, or guest to r/all
+     *  Returns feed homepage, or guest to r/all
      *
      * @return view feed (home or all)
      */
@@ -38,6 +39,11 @@ class FeedController extends Controller
         ]);
     }
 
+    /**
+     *  Returns topic feed, all posts related to the topic
+     *
+     * @return view feed (topic)
+     */
     public function topic($topic_name)
     {
         $topic = Topic::where('name', $topic_name)->first();
